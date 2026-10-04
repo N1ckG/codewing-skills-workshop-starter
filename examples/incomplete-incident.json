@@ -1,0 +1,5 @@
+{
+  "impact": "The demo document upload endpoint times out intermittently.",
+  "actions": [{"action": "Increased the demo timeout", "observation": "No recovery measurement yet"}],
+  "current_status": "Unknown whether the timeout change improved uploads."
+}

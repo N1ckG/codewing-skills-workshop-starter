@@ -1,0 +1,12 @@
+{
+  "severity": "SEV-2 (fictional exercise label)",
+  "impact": "The demo appointment API returns HTTP 503 for new booking requests. Existing bookings remain readable.",
+  "started_at_utc": "2026-10-04T08:10:00Z",
+  "actions": [
+    {"at_utc": "2026-10-04T08:17:00Z", "action": "Restarted one demo application pod", "observation": "503 responses continued"},
+    {"at_utc": "2026-10-04T08:22:00Z", "action": "Checked the connection pool metric", "observation": "Pool usage remained at its configured maximum"}
+  ],
+  "current_status": "Unresolved. Database connectivity is a hypothesis, not a confirmed cause.",
+  "next_owner": "Demo on-call engineer B",
+  "suggested_next_action": "Inspect the demo database connection logs and compare with the last deployment."
+}
