@@ -35,11 +35,19 @@ If your client does not expose the slash command, ask it to use the `incident-ha
 | --- | --- |
 | `.github/skills/incident-handoff/` | A complete, discoverable example with a reference, an output template and an optional Python checker |
 | `templates/my-skill/SKILL.md` | A scaffold outside discovery locations, so it cannot accidentally compete with your skill |
-| `examples/` | Fictional incidents, a code change and a Terraform snippet |
+| `demo/security-review/` | The skill from the live demo, kept outside discovery locations until you copy it in |
+| `examples/` | Fictional incidents, a code change, a Terraform snippet and intentionally insecure demo code |
 | `docs/workshop.md` | Lab steps, two tracks and completion criteria |
 | `docs/test-prompts.md` | Activation and output tests |
 | `docs/loading.md` | The loading model and troubleshooting |
 | `scripts/validate_skills.py` | A lightweight check for the simple frontmatter and local links used here |
+
+## Demo skill
+
+`demo/security-review/` is the skill from the live demo.
+It sits outside `.github/skills/` on purpose, so the first run in the demo uses no skill.
+To try it, copy the folder to `.github/skills/security-review/`, start a new chat and ask: "Check the code in this repo for security vulnerabilities."
+`examples/security/orders_api.py` is fictional, intentionally insecure code for that demo. Do not run or reuse it.
 
 ## Your skill
 
