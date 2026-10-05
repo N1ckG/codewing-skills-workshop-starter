@@ -1,34 +1,54 @@
 # Lab guide
 
-## The hour
+This guide follows the hands-on slide "Build one skill: start here".
+The hands-on takes the rest of the hour after the talk and the mini demo.
+No Copilot or Wi-Fi? Pair up with your neighbour.
+Stuck? Ask your table first, then raise your hand.
 
-| Minutes | Activity |
+## 1. Get started
+
+1. Clone or download this repository: `github.com/N1ckG/codewing-skills-workshop-starter`.
+2. Open the repository root in VS Code, not a subfolder, and switch Copilot Chat to Agent mode.
+3. Type `/skills` in the chat. You should see `incident-handoff`.
+
+If nothing shows up, check that the root folder is open and that the chat is in Agent mode.
+
+## 2. Pick a task
+
+Pick something you explained twice this month.
+Small, frequent, and you recognise a good result.
+
+| Idea | Sample input in this repo |
 | --- | --- |
-| 0–20 | Explanation, loading walkthrough and live example |
-| 20–23 | Clone, open the root and check Copilot |
-| 23–35 | Build your first skill |
-| 35–47 | Test activation and output |
-| 47–55 | Swap with a partner and improve |
-| 55–60 | Show two results and name a next step |
+| Merge request description | `examples/developer-change.md` |
+| Terraform change review | `examples/infrastructure-change.tf` |
+| Incident handoff | `.github/skills/incident-handoff/` is a complete example to read and copy from |
+| Commit message in your team's format | |
+| Runbook or release checklist | |
+| Explain a script or module to a newcomer | |
 
-## Choose a small workflow
+You can also bring your own task.
+Keep private work in its own repository: this repository is public.
 
-Developers can draft PR summaries using `examples/developer-change.md`.
-Infrastructure colleagues can review a proposed change using `examples/infrastructure-change.tf`, without applying it.
-Either group can adapt an incident handoff to a different audience.
-You can use another recurring task if its input and output fit this session.
+### Should it be a skill?
 
-**Finish line:** one discovered skill, a useful output, a positive activation test, a paraphrase test, an unrelated request test and a missing-input test. Record evidence, including a failure and your improvement if one occurs.
+Answer four questions.
+Four times yes: write the skill.
 
-## Build: 23–35 minutes
+1. Do you repeat it? If not, just ask in chat.
+2. Is it for one kind of task? If it should apply to every chat, use custom instructions instead.
+3. Can you say what good looks like (format, steps, checks)? If not, clarify the task first.
+4. Is it safe to write down? Secrets, credentials and member data never go in a skill.
 
-1. Choose a workflow you currently explain repeatedly to a colleague or to Copilot.
-2. Copy `templates/my-skill/SKILL.md` to `.github/skills/<your-name>/SKILL.md`. Use a lowercase hyphenated name, matching the directory.
-3. Write the description first. Specify the outcome, task language and relevant boundary.
-4. Replace the body with your input requirements, workflow and expected output. Give it task-specific guidance rather than generic instructions to be helpful.
-5. Save it and check discovery in the client. Start a fresh chat if the current session does not reflect your changes.
+## 3. Draft it
 
-Copilot drafting prompt:
+1. Type `/create-skill` in the chat and describe your task, or copy `templates/my-skill/SKILL.md` to `.github/skills/<your-skill-name>/SKILL.md`.
+2. Write the description first: what the skill does and when to use it, in the words people actually type.
+3. Keep the folder name and the `name` field identical: lowercase letters, numbers and hyphens.
+4. Write the steps in plain Markdown, the way you would brief a colleague.
+5. Read every line Copilot drafted and remove team rules it invented.
+
+Drafting prompt, if you prefer to ask in your own words:
 
 ```text
 Help me create a skill for [my recurring task] in .github/skills/[my-name]/SKILL.md.
@@ -36,38 +56,37 @@ Use templates/my-skill/SKILL.md as a starting point.
 My input is [example]. A useful result is [format and success criteria].
 The skill should apply to [requests], and should leave [nearby tasks] to another workflow.
 Ask about missing task details before inventing our team's rules.
-Keep the first version short. Explain why you chose the description.
+Keep the first version short.
 ```
 
-## Test: 35–47 minutes
+## 4. Test it
 
-Use [the test prompts](test-prompts.md). Run each automatic activation test in a fresh chat without naming the skill or attaching `SKILL.md`. Keep the input explicit. Inspect tool activity for the skill file and resources where your client exposes it.
+1. Open a new chat.
+2. Ask your question normally, without naming the skill or attaching `SKILL.md`.
+3. Look for `SKILL.md` in the references or tool activity of the answer.
+4. Not picked? Sharpen the description and try again in a new chat.
+5. Picked, but the result is off? Improve the steps, or add a template or checklist next to `SKILL.md` and link it from a step.
 
-Check the result against your expected format and facts. The agent saying “I used the skill” or reproducing a marker is weaker evidence than an actual load/read event. Some clients inject skill instructions without a visible file read. If you cannot see loading, record that limitation separately from output quality.
+[The test prompts](test-prompts.md) show the same tests for `incident-handoff`.
 
-Suggested record:
+## Checkpoints
 
-| Request | Expected activation | Observed loading evidence | Output result | Improvement |
-| --- | --- | --- | --- | --- |
-| Direct task | Yes | | | |
-| Paraphrase | Yes | | | |
-| Unrelated task | No | | | |
-| Missing input | Yes, then clarify | | | |
+- About a third of the way in: a first `SKILL.md` is saved. If not, make the task smaller.
+- About two thirds in: everyone tests in a fresh chat, without naming the skill.
+- A few minutes before the share-back: get your phone ready.
 
-## Pair review: 47–55 minutes
+## Done early?
 
-Ask a partner to try their own wording in a fresh chat. Have them assess whether the output would be useful in their work. Change the description for routing failures and the body or reference for execution failures. Repeat the failing test.
+- Add a checklist or template and make a step point to it.
+- Test a question that should not trigger your skill.
+- Move the skill to your own team repository and try it on real work.
 
-## Stretch track
+## Share-back
 
-Add one resource only when it improves your workflow:
+Scan the QR code on the share-back slide and type, in two or three words, which task your skill handles.
+The answers appear as a live word cloud.
 
-- A reference with a concrete rubric that applies to one task variant.
-- An asset with the desired output format.
-- A deterministic local script, with documented inputs and failure behavior.
+## After the workshop
 
-Link the resource from `SKILL.md` and say when to use it. Check whether the relevant resource loads or runs on the matching request. Do not connect to live systems for this exercise.
-
-## Share: 55–60 minutes
-
-Show your description, one output and a test that taught you something. Name where you would maintain the skill, who would review changes and which representative test you would keep.
+- Share the skill with your team through your team's folder in the CM APM marketplace (the link is on the slides). The CodeWing team reviews the pull request.
+- Keep it alive: rerun your test question after every change, update `SKILL.md` when the result is off, and run `apm update` to get the latest version of shared skills.

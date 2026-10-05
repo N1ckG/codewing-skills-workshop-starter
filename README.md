@@ -1,6 +1,6 @@
-# Codewing: creating skills with GitHub Copilot
+# Skills Deep Dive: Teach Your AI New Tricks
 
-A one-hour workshop for CM developers and infrastructure colleagues, facilitated by **Nick Geerts and Tom Heyvaert**.
+The hands-on starter for our one-hour CodeWing Take-Off breakout for CM IT, by **Nick Geerts and Tom Heyvaert**.
 
 By the end, you will have created a skill and tested both when it activates and what it produces. Everything in the sample inputs is fictional.
 
@@ -19,7 +19,9 @@ cd codewing-skills-workshop-starter
 code .
 ```
 
-Open Copilot Chat in agent mode. Open the repository root, rather than a child folder. Type `/` and look for `incident-handoff`. You can also inspect skills through Configure Chat or `/skills` in current VS Code releases.
+Open the repository root, rather than a child folder, and switch Copilot Chat to Agent mode.
+Type `/skills` and look for `incident-handoff`.
+No Copilot or Wi-Fi? Pair up with your neighbour.
 
 Try this explicit invocation:
 
@@ -37,7 +39,7 @@ If your client does not expose the slash command, ask it to use the `incident-ha
 | `templates/my-skill/SKILL.md` | A scaffold outside discovery locations, so it cannot accidentally compete with your skill |
 | `demo/security-review/` | The skill from the live demo, kept outside discovery locations until you copy it in |
 | `examples/` | Fictional incidents, a code change, a Terraform snippet and intentionally insecure demo code |
-| `docs/workshop.md` | Lab steps, two tracks and completion criteria |
+| `docs/workshop.md` | The hands-on steps: get started, pick a task, draft it, test it |
 | `docs/test-prompts.md` | Activation and output tests |
 | `docs/loading.md` | The loading model and troubleshooting |
 | `scripts/validate_skills.py` | A lightweight check for the simple frontmatter and local links used here |
@@ -51,9 +53,13 @@ To try it, copy the folder to `.github/skills/security-review/`, start a new cha
 
 ## Your skill
 
-Create `.github/skills/<your-skill-name>/SKILL.md` using the scaffold, or ask Copilot to help you draft it. Keep the folder name and `name` identical. Good topics include a pull request summary, an infrastructure change review or an incident handoff.
+Follow [the lab guide](docs/workshop.md).
+In short: type `/create-skill` and describe your task, or copy `templates/my-skill/SKILL.md` to `.github/skills/<your-skill-name>/SKILL.md`.
+Keep the folder name and `name` identical, and write the description first: what the skill does and when to use it.
+Good first topics: a merge request description, a Terraform change review, an incident handoff, a commit message or a runbook checklist.
 
-Read [the lab guide](docs/workshop.md). Test with fresh chats before claiming that automatic activation works. Mentioning a skill's name or opening its file changes the test.
+Test in a new chat, without naming the skill, and look for `SKILL.md` in the references.
+Mentioning a skill's name or opening its file changes the test.
 
 Optional checks:
 
